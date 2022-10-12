@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import {db} from './firebase.js'
+import {useEffect, useState} from 'react'
 
 function App() {
+  const [user, setUser] = useState(null);
+  useEffect(()=>{
+    console.log(db)
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='header'>
+        <div className='header__logo'>
+        <img src='https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png' />
+        </div>
+        <div className='header__loginForm'>
+          <form>
+            <input type='text' placeholder='Login...'/>
+            <input type='password' placeholder='Senha...'/>
+            <input type='submit' value='Logar'/>
+          </form>
+        </div>
+      </div>
+      
     </div>
   );
 }
